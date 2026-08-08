@@ -1,0 +1,35 @@
+# Minimal example manifest — copy this as a starting point for your own
+# project, or point `--manifest` at it directly to try the pipeline end to
+# end. See README.md for the full field reference.
+
+title: "Example: two-shot demo"
+target_runtime_seconds: 14
+aspect_ratio: "1280:720"   # Runway ratio string; 16:9 landscape
+video_model: "gen4.5"
+
+shots:
+  - id: S1
+    start: 0
+    end: 7
+    nominal_duration: 7
+    visual_prompt: >
+      A single sphere of soft blue light floats in a dark void, slowly
+      rotating. Minimal, high-contrast, no text, no humans.
+    on_screen_text: "A simple idea."
+    narration: >
+      Every video here starts the same way: a shot manifest, a few lines of
+      text, and two APIs that do the rest.
+    sfx_cues: []
+
+  - id: S2
+    start: 7
+    end: 14
+    nominal_duration: 7
+    visual_prompt: >
+      The blue sphere splits into a dozen smaller spheres that drift apart
+      and arrange themselves into a grid. Minimal, high-contrast, no text.
+    on_screen_text: "One prompt at a time."
+    narration: >
+      Each shot becomes a Runway generation, each line becomes an ElevenLabs
+      narration clip, and ffmpeg stitches the result together.
+    sfx_cues: []
