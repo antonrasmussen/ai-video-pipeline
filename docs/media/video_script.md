@@ -1,14 +1,17 @@
 # Video script: *This Video Made Itself*
 
-Plan and unified A/V script for a short (~83s) teaser covering
+Plan and unified A/V script for a short (~83s target) teaser covering
 `ai-video-pipeline` at a very high level: what it is, the two APIs it wires
 together, the one design decision that makes it work (audio drives timing,
 not the manifest's guess), and the cost discipline that keeps it affordable.
-Intended for a README media embed; produced *by the tool it describes*, using
-this same script → manifest → CLI method the pipeline was originally built to
-serve for another project.
+Intended for a README media embed; produced *by the tool it describes*. This
+script is a human-authored planning document, not a pipeline input: it was
+compiled by hand into `shot_manifest.yaml`, and the CLI pipeline runs from
+that manifest, the same script → manifest → CLI method used for another
+project.
 
-- Runtime target: ~83 seconds (constraint: 75–95s)
+- Runtime target: ~83 seconds (constraint: 75–95s); the produced video
+  measured 81.13s once real narration audio came in — see "Calibration"
 - Narration: ~244 words, paced for this video's narrator (ElevenLabs voice
   "River") — see "Calibration" below; word count is not a fixed constraint,
   wording is tuned against measured audio, not a wpm formula

@@ -5,7 +5,7 @@ for the visuals (text-to-video), [ElevenLabs](https://elevenlabs.io) for the
 narration, [ffmpeg](https://ffmpeg.org) to assemble the result locally. No
 manual editing, no UI work in either service — the whole thing is a CLI.
 
-## 81-second teaser, made by the pipeline itself
+## ~81-second teaser, made by the pipeline itself
 
 https://github.com/user-attachments/assets/ced4827e-8dec-4de3-a4e3-7ab0e4a0b66a
 
@@ -15,9 +15,9 @@ shot manifest ([docs/media/shot_manifest.yaml](docs/media/shot_manifest.yaml)),
 run through `plan` → `synth-narration` → `generate-video` → `assemble` with
 no manual editing.
 
-Originally built to produce [an explainer video](https://github.com/careful-data/verified-healthcare-agent-harness)
-for a different research prototype; extracted here since the pipeline itself
-has nothing to do with that project's content.
+Originally built to produce an explainer video for a different research
+prototype (private while that work is in development); extracted here since
+the pipeline itself has nothing to do with that project's content.
 
 ## Install
 

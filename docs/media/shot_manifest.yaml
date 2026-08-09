@@ -1,14 +1,17 @@
 # Shot manifest for the ai-video-pipeline teaser ("This Video Made Itself").
 # See docs/media/video_script.md for the full A/V script, creative rationale,
-# and self-critique this manifest was derived from.
+# calibration notes, and self-critique this manifest was derived from.
 #
-# nominal_duration below is a planning estimate only (words / 1.92 wps, the
-# pipeline's own measured narration rate from its first production run) —
+# nominal_duration below is a planning estimate only, tuned per shot against
+# the actual narrator's measured pace (see video_script.md's "Calibration" —
+# words/sec varies by voice, so there's no fixed rate to derive it from) —
 # real per-shot duration and real Runway spend are determined by
 # `synth-narration` measuring the actual synthesized audio, not by this file.
+# Sum of nominal_duration below is 83.3s; the produced video measured 81.13s,
+# slightly faster than planned, once real narration audio was in.
 
 title: "This Video Made Itself"
-target_runtime_seconds: 85
+target_runtime_seconds: 83
 aspect_ratio: "1280:720"
 video_model: "gen4.5"
 
