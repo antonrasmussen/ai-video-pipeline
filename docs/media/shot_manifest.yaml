@@ -1,0 +1,150 @@
+# Shot manifest for the ai-video-pipeline teaser ("This Video Made Itself").
+# See docs/media/video_script.md for the full A/V script, creative rationale,
+# calibration notes, and self-critique this manifest was derived from.
+#
+# nominal_duration below is a planning estimate only, tuned per shot against
+# the actual narrator's measured pace (see video_script.md's "Calibration" —
+# words/sec varies by voice, so there's no fixed rate to derive it from) —
+# real per-shot duration and real Runway spend are determined by
+# `synth-narration` measuring the actual synthesized audio, not by this file.
+# Sum of nominal_duration below is 83.3s; the produced video measured
+# ~79.8s, slightly faster than planned, once real narration audio was in.
+
+title: "This Video Made Itself"
+target_runtime_seconds: 83
+aspect_ratio: "1280:720"
+video_model: "gen4.5"
+
+shots:
+  - id: S1
+    start: 0
+    end: 7.2
+    nominal_duration: 7.2
+    visual_prompt: >
+      A single luminous pale-gold filament of light writes itself
+      horizontally across a near-black void, unhurried, tracing like
+      handwriting with no hand. It reaches the right edge and folds inward on
+      itself, collapsing into one small, dense, glowing seed of light at
+      center frame. Nothing else in frame: no tools, no cursor, no interface.
+      Minimal, high-contrast, no text, no humans.
+    on_screen_text: "Nobody edited this."
+    narration: >
+      Nobody edited this. No timeline. No cuts by hand. It came from one text
+      file, and two APIs did the rest.
+    sfx_cues: ["low ambient tone, rising slightly as the filament collapses"]
+
+  - id: S2
+    start: 7.2
+    end: 19.8
+    nominal_duration: 12.6
+    visual_prompt: >
+      The gold seed unfolds into a receding vertical ladder of glowing
+      horizontal rules, evenly spaced, like a document made entirely of
+      light — no readable glyphs, just structure. One by one, each rule
+      splits lengthwise into two thin parallel strands: one drifting toward
+      violet, one drifting toward teal. The ladder continues receding into
+      the dark as more rules split. Minimal, high-contrast, no text, no
+      humans.
+    on_screen_text: "One entry per shot."
+    narration: >
+      It starts as a shot manifest: one entry per shot, holding a picture to
+      be generated, a line to be spoken, and a bit of timing — nothing about
+      how any of it actually gets made.
+    sfx_cues: []
+
+  - id: S3
+    start: 19.8
+    end: 33.5
+    nominal_duration: 13.7
+    visual_prompt: >
+      Near-black void split by an unmarked vertical midline. On the left, a
+      violet-magenta volumetric bloom slowly gathers and resolves into a
+      rotating, translucent abstract form, folding and unfolding. On the
+      right, a teal ribbon of light unspools from a point and oscillates like
+      a slow waveform, never repeating exactly. The two sides brighten and
+      drift toward the center at the same unhurried pace, but never touch or
+      merge. Minimal, high-contrast, no text, no humans.
+    on_screen_text: "Two APIs. One file."
+    narration: >
+      Two unrelated services do the making. One turns each description into a
+      moving picture. The other turns each line of text into a spoken voice.
+      Neither service knows the other exists, and neither one is ever
+      trusted with the timing.
+    sfx_cues: []
+
+  - id: S4
+    start: 33.5
+    end: 45.4
+    nominal_duration: 11.9
+    visual_prompt: >
+      A teal ribbon of light lies flat and still at center frame in a
+      near-black void. A pair of cold steel, caliper-like arms of pale light
+      close in from either side and hold it at a fixed span, precise ticks
+      marking the measurement. Beside it, a violet ribbon of equal starting
+      length shears cleanly at exactly that same span; the excess past the
+      cut dissolves into fine drifting dust. Minimal, high-contrast, no text,
+      no humans.
+    on_screen_text: "The voice sets the length."
+    narration: >
+      The voice is generated first, and measured. Whatever it actually takes
+      to say a line becomes that shot's real length — not the guess written
+      in the manifest — and the picture gets trimmed to match exactly.
+    sfx_cues: []
+
+  - id: S5
+    start: 45.4
+    end: 58.7
+    nominal_duration: 13.3
+    visual_prompt: >
+      A gap of light-marked space sits at center frame in a near-black void,
+      wider than any single piece could span. Short violet segments of
+      varying length slide in from off-frame and test themselves against the
+      gap, one combination at a time, each attempt fading if it doesn't fit
+      flush. The best-fitting combination locks into place, flush at both
+      ends; a small overhang shears cleanly away into drifting dust.
+      Minimal, high-contrast, no text, no humans.
+    on_screen_text: "Least wasted footage."
+    narration: >
+      Runway caps a single generation at ten seconds, so a longer shot has
+      to be built from several. Whichever combination of five, eight, and
+      ten-second clips wastes the least footage gets picked — because wasted
+      footage is still paid for.
+    sfx_cues: []
+
+  - id: S6
+    start: 58.7
+    end: 73.4
+    nominal_duration: 14.7
+    visual_prompt: >
+      A precise steel aperture, ring-like and exact, spans the center of
+      frame in a near-black void. A colorless, ghost-grey braid of light
+      approaches from the left and passes through the aperture freely,
+      unimpeded, continuing into the dark. A second braid — this one solid
+      violet and teal — arrives at the same aperture, which has now closed to
+      a thin bright seam, and it holds at the threshold, waiting. Minimal,
+      high-contrast, no text, no humans.
+    on_screen_text: "Nothing spends by accident."
+    narration: >
+      A free rehearsal proves the whole assembly locally, with no network
+      calls at all. Voice costs pennies, so it runs right away — but the
+      expensive step, generating video, refuses to run until someone
+      confirms it, on purpose.
+    sfx_cues: []
+
+  - id: S7
+    start: 73.4
+    end: 83.3
+    nominal_duration: 9.9
+    visual_prompt: >
+      The violet and teal ribbons from earlier shots twist together into one
+      continuous braided strand in a near-black void, spiraling inward, then
+      snap taut into a single clean horizontal line of light at center frame.
+      The line holds, steady and still, fading only slightly at the very end.
+      Empty darkness surrounds it, unchanging. Minimal, high-contrast, no
+      text, no humans.
+    on_screen_text: "It built itself."
+    narration: >
+      Which is how this video exists. A person wrote the narration and what
+      each shot should show. The pipeline made the pictures, spoke the
+      lines, and built the rest.
+    sfx_cues: ["hum resolves to silence"]
