@@ -5,7 +5,7 @@ for the visuals (text-to-video), [ElevenLabs](https://elevenlabs.io) for the
 narration, [ffmpeg](https://ffmpeg.org) to assemble the result locally. No
 manual editing, no UI work in either service — the whole thing is a CLI.
 
-## ~81-second teaser, made by the pipeline itself
+## ~80-second teaser, made by the pipeline itself
 
 https://github.com/user-attachments/assets/ced4827e-8dec-4de3-a4e3-7ab0e4a0b66a
 

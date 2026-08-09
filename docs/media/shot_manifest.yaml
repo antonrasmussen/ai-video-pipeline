@@ -8,7 +8,7 @@
 # real per-shot duration and real Runway spend are determined by
 # `synth-narration` measuring the actual synthesized audio, not by this file.
 # Sum of nominal_duration below is 83.3s; the produced video measured
-# ~81.4s, slightly faster than planned, once real narration audio was in.
+# ~79.8s, slightly faster than planned, once real narration audio was in.
 
 title: "This Video Made Itself"
 target_runtime_seconds: 83
@@ -47,10 +47,9 @@ shots:
       humans.
     on_screen_text: "One entry per shot."
     narration: >
-      It starts as a shot manifest: one entry per shot, each holding a
-      picture to be generated and a line to be spoken — nothing about
-      resolution, nothing about pacing, nothing about how any of it gets
-      made.
+      It starts as a shot manifest: one entry per shot, holding a picture to
+      be generated, a line to be spoken, and a bit of timing — nothing about
+      how any of it actually gets made.
     sfx_cues: []
 
   - id: S3

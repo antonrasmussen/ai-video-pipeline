@@ -11,7 +11,7 @@ that manifest, the same script → manifest → CLI method used for another
 project.
 
 - Runtime target: ~83 seconds (constraint: 75–95s); the produced video
-  measured ~81.4s once real narration audio came in — see "Calibration"
+  measured ~79.8s once real narration audio came in — see "Calibration"
 - Narration: ~244 words, paced for this video's narrator (ElevenLabs voice
   "River") — see "Calibration" below; word count is not a fixed constraint,
   wording is tuned against measured audio, not a wpm formula
@@ -39,8 +39,9 @@ the same two-API, one-file pipeline it explains.**
 
 ## B. Audience takeaway checklist
 
-- **The whole pipeline is one shot manifest**: a list of shots, each holding a
-  visual prompt and a narration line — nothing else is hand-authored.
+- **The whole pipeline runs from one shot manifest**: each shot's visual
+  prompt, narration, on-screen text, and timing all live in one hand-authored
+  YAML file — that's the only input.
 - **Two unrelated APIs do the work**: Runway generates the picture, ElevenLabs
   generates the voice. Neither knows the other exists.
 - **Audio drives timing, not the other way around.** The manifest's duration
@@ -48,9 +49,10 @@ the same two-API, one-file pipeline it explains.**
   real target the video is cut to.
 - **Runway generations are capped at 10 seconds each**, so longer shots are
   tiled from multiple generations, chosen to waste the least paid footage.
-- **Spending is gated and deliberate**: a free local rehearsal proves the
-  assembly mechanically before a single paid generation is requested, and the
-  paid step refuses to run without explicit confirmation.
+- **Spending is deliberate, not uniform.** A free local rehearsal proves the
+  assembly mechanically first. Narration synthesis is a small per-character
+  cost that runs right away; video generation, the expensive step, refuses to
+  run without explicit confirmation.
 - **This video is proof, not just an example** — it is itself the pipeline's
   output.
 
@@ -81,7 +83,7 @@ cut, not a continuity error.
 | VISUAL & ON-SCREEN TEXT | AUDIO / NARRATION |
 |---|---|
 | **S1 · 0:00–0:07.2.** Near-black void. A single luminous pale-gold filament of light writes itself horizontally across the frame, unhurried, tracing like handwriting with no hand. It reaches the right edge and folds inward on itself, collapsing into one small, dense, glowing seed of light at center frame. Nothing else in frame: no tools, no cursor, no interface. ON-SCREEN TEXT: "Nobody edited this." | *(0:00)* Nobody edited this. No timeline. No cuts by hand. It came from one text file, and two APIs did the rest. |
-| **S2 · 0:07.2–0:19.8.** Near-black void. The gold seed from S1 unfolds into a receding vertical ladder of glowing horizontal rules, evenly spaced, like a document made entirely of light — no readable glyphs, just structure. One by one, each rule splits lengthwise into two thin parallel strands: one drifting toward violet, one drifting toward teal. The ladder continues receding into the dark as more rules split. ON-SCREEN TEXT: "One entry per shot." | *(0:07.2)* It starts as a shot manifest: one entry per shot, each holding a picture to be generated and a line to be spoken — nothing about resolution, nothing about pacing, nothing about how any of it gets made. |
+| **S2 · 0:07.2–0:19.8.** Near-black void. The gold seed from S1 unfolds into a receding vertical ladder of glowing horizontal rules, evenly spaced, like a document made entirely of light — no readable glyphs, just structure. One by one, each rule splits lengthwise into two thin parallel strands: one drifting toward violet, one drifting toward teal. The ladder continues receding into the dark as more rules split. ON-SCREEN TEXT: "One entry per shot." | *(0:07.2)* It starts as a shot manifest: one entry per shot, holding a picture to be generated, a line to be spoken, and a bit of timing — nothing about how any of it actually gets made. |
 | **S3 · 0:19.8–0:33.5.** Near-black void split by an unmarked vertical midline. On the left, a violet-magenta volumetric bloom slowly gathers and resolves into a rotating, translucent abstract form, folding and unfolding. On the right, a teal ribbon of light unspools from a point and oscillates like a slow waveform, never repeating exactly. The two sides brighten and drift toward the center at the same unhurried pace, but never touch or merge. ON-SCREEN TEXT: "Two APIs. One file." | *(0:19.8)* Two unrelated services do the making. One turns each description into a moving picture. The other turns each line of text into a spoken voice. Neither service knows the other exists, and neither one is ever trusted with the timing. |
 | **S4 · 0:33.5–0:45.4.** Near-black void. A teal ribbon of light lies flat and still at center frame. A pair of cold steel, caliper-like arms of pale light close in from either side and hold it at a fixed span, precise ticks marking the measurement. Beside it, a violet ribbon of equal starting length shears cleanly at exactly that same span; the excess past the cut dissolves into fine drifting dust. ON-SCREEN TEXT: "The voice sets the length." | *(0:33.5)* The voice is generated first, and measured. Whatever it actually takes to say a line becomes that shot's real length — not the guess written in the manifest — and the picture gets trimmed to match exactly. |
 | **S5 · 0:45.4–0:58.7.** Near-black void. A gap of light-marked space sits at center frame, wider than any single piece could span. Short violet segments of varying length slide in from off-frame and test themselves against the gap, one combination at a time, each attempt fading if it doesn't fit flush. The best-fitting combination locks into place, flush at both ends; a small overhang shears cleanly away into drifting dust. ON-SCREEN TEXT: "Least wasted footage." | *(0:45.4)* Runway caps a single generation at ten seconds, so a longer shot has to be built from several. Whichever combination of five, eight, and ten-second clips wastes the least footage gets picked — because wasted footage is still paid for. |
@@ -92,7 +94,7 @@ cut, not a continuity error.
 
 **Title:** *This Video Made Itself*
 
-**Description:** An ~81-second teaser for `ai-video-pipeline`, generated by
+**Description:** An ~80-second teaser for `ai-video-pipeline`, generated by
 the pipeline itself: one shot manifest, two APIs, and ffmpeg — no manual
 editing, no UI work in either service.
 
@@ -149,3 +151,13 @@ editing, no UI work in either service.
    requires `--confirm`. Corrected: S6 now names the actual asymmetry (cheap
    step runs right away, expensive step waits for confirmation) instead of a
    blanket claim that doesn't hold up against the tool's own source.
+9. **S2 originally claimed the manifest has "nothing about resolution,
+   nothing about pacing."** Not true: `aspect_ratio` and each shot's
+   `start`/`end`/`nominal_duration` are manifest fields — this video's own
+   manifest sets them. The B-checklist repeated the same overclaim ("nothing
+   else is hand-authored," "the paid step" singular). Corrected both: S2 now
+   says the manifest holds "a bit of timing" rather than denying timing
+   fields exist, and the checklist names on-screen text and timing as
+   hand-authored too, and separates narration's ungated cost from video
+   generation's gated one — the same asymmetry fixed in #8, this time in the
+   summary bullets rather than just the narration.
