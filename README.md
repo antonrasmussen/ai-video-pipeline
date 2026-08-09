@@ -9,11 +9,11 @@ manual editing, no UI work in either service — the whole thing is a CLI.
 
 https://github.com/user-attachments/assets/ced4827e-8dec-4de3-a4e3-7ab0e4a0b66a
 
-Produced end to end by this tool: a script
-([docs/media/video_script.md](docs/media/video_script.md)) compiled into a
-shot manifest ([docs/media/shot_manifest.yaml](docs/media/shot_manifest.yaml)),
-run through `plan` → `synth-narration` → `generate-video` → `assemble` with
-no manual editing.
+A script ([docs/media/video_script.md](docs/media/video_script.md)) was
+hand-written and hand-compiled into a shot manifest
+([docs/media/shot_manifest.yaml](docs/media/shot_manifest.yaml)); from there,
+the tool took over: `plan` → `synth-narration` → `generate-video` →
+`assemble`, with no manual video editing.
 
 Originally built to produce an explainer video for a different research
 prototype (private while that work is in development); extracted here since

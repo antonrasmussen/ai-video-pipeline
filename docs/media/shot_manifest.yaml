@@ -7,8 +7,8 @@
 # words/sec varies by voice, so there's no fixed rate to derive it from) —
 # real per-shot duration and real Runway spend are determined by
 # `synth-narration` measuring the actual synthesized audio, not by this file.
-# Sum of nominal_duration below is 83.3s; the produced video measured 81.13s,
-# slightly faster than planned, once real narration audio was in.
+# Sum of nominal_duration below is 83.3s; the produced video measured
+# ~81.4s, slightly faster than planned, once real narration audio was in.
 
 title: "This Video Made Itself"
 target_runtime_seconds: 83
@@ -126,10 +126,10 @@ shots:
       high-contrast, no text, no humans.
     on_screen_text: "Nothing spends by accident."
     narration: >
-      Every paid step is gated behind a plan you can read first. A free
-      rehearsal proves the whole assembly locally, with no network calls at
-      all — and the one step that actually costs money refuses to run until
-      someone confirms it, on purpose.
+      A free rehearsal proves the whole assembly locally, with no network
+      calls at all. Voice costs pennies, so it runs right away — but the
+      expensive step, generating video, refuses to run until someone
+      confirms it, on purpose.
     sfx_cues: []
 
   - id: S7
@@ -145,7 +145,7 @@ shots:
       text, no humans.
     on_screen_text: "It built itself."
     narration: >
-      Which is how this video exists. A person wrote the words. The pipeline
-      described the pictures, spoke the lines, and built the rest — start to
-      finish, on its own.
+      Which is how this video exists. A person wrote the narration and what
+      each shot should show. The pipeline made the pictures, spoke the
+      lines, and built the rest.
     sfx_cues: ["hum resolves to silence"]
